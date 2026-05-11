@@ -148,14 +148,15 @@ client/
 │   └── app.spec.ts
 ├── src/
 │   ├── components/ui/            # shadcn/ui components (Button, Card, Badge, Label, Slider)
-│   ├── lib/utils.ts              # cn() helper (clsx + tailwind-merge)
+│   ├── lib/
+│   │   ├── utils.ts              # cn() helper (clsx + tailwind-merge)
+│   │   └── diff.ts               # Visual diff algorithm
 │   ├── pages/
-│   │   ├── home.page.tsx         # Landing page
+│   │   ├── home.page.tsx         # Landing page (futuristic glassmorphism UI)
 │   │   └── differetiator.page.tsx # Main comparison page
 │   ├── stores/files.store.ts     # Zustand store with IndexedDB persistence
 │   ├── utils/
-│   │   ├── index.ts              # IndexedDB helpers, image compression, logger
-│   │   └── diff.ts               # Visual diff algorithm
+│   │   └── index.ts              # IndexedDB helpers, image compression, logger
 │   ├── validators/
 │   │   └── differentiator.validator.ts  # Zod form schema
 │   ├── app.tsx                   # Router setup
@@ -191,7 +192,7 @@ client/
 
 E2E tests are written with **Playwright** (Chromium). The test suite covers:
 
-1. **Navigation** — Home page renders, "Get Started" navigates to `/diff`
+1. **Navigation** — Home page renders, "Launch Detector" navigates to `/diff`
 2. **UI Elements** — Upload areas, sensitivity slider, disabled compare button
 3. **Full Comparison Flow** — Upload two images → compare → verify processing time, regions, percentage, and diff image appear
 4. **Sensitivity Slider** — Value updates on change
